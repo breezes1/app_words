@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @wordbooks_word %>
+
+<div>
+  <%= link_to "Edit this word", edit_wordbooks_word_path(@wordbooks_word) %> |
+  <%= link_to "Back to words", wordbooks_words_path %>
+
+  <%= button_to "Destroy this word", @wordbooks_word, method: :delete %>
+</div>

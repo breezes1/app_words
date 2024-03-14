@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: user_words
+#
+#  id               :bigint           not null, primary key
+#  user_id          :bigint           not null
+#  word_id          :bigint           not null
+#  mastered         :boolean
+#  last_reviewed_at :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  user: one
+  word: one
+  mastered: false
+  last_reviewed_at: 2024-03-14 15:05:37
+
+two:
+  user: two
+  word: two
+  mastered: false
+  last_reviewed_at: 2024-03-14 15:05:37

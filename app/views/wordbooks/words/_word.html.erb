@@ -1,0 +1,25 @@
+<%
+  user_word = current_user.user_words.find_by(word: word)
+%>
+<tr id="<%= dom_id word %>">
+  <td><%= word.name %></td>
+  <td><%= word.alternate_spelling %></td>
+  <td><%= word.meaning %></td>
+  <td><%= word.sentence %></td>
+  <td><%= word.phonetic %></td>
+  <td><%= user_word&.mastered ? '已掌握' : '' %></td>
+  <td><%= user_word&.last_reviewed_at&.to_fs(:web) %></td>
+  <td style='display: flex'>
+    <% if user_word&.mastered %>
+      <%= button_to "变更为未掌握", unmastered_wordbooks_word_path(@wordbook, word), method: :put %>
+    <% else %>
+      <%= button_to "变更为已掌握", mastered_wordbooks_word_path(@wordbook, word), method: :put %>
+    <% end %>
+
+    <% unless @wordbook.system? %>
+      <%= link_to "编辑", edit_wordbooks_word_path(@wordbook, word), style: 'margin-left: 1em' %>
+
+      <%= button_to "删除", wordbooks_word_path(@wordbook, word), method: :delete, data: { confirm: "Are you sure?" }, style: 'margin-left: 1em' %>
+    <% end %>
+  </td>
+</tr>

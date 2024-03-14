@@ -1,0 +1,2 @@
+module Wordbooks::WordsHelper
+end

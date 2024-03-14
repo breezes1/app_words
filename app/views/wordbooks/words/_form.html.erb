@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@wordbook_word, url: @wordbook_word.persisted? ? wordbooks_word_path(@wordbook, @wordbook_word) : wordbooks_words_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :alternate_spelling %>
+    <%= f.input :meaning %>
+    <%= f.input :sentence %>
+    <%= f.input :phonetic %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

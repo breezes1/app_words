@@ -1,0 +1,24 @@
+<h1>单词本集合</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>单词数量/掌握数量</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wordbooks.each do |wordbook| %>
+      <tr>
+        <td><%= wordbook.name %></td>
+        <td><%= wordbook.words.count %> / <%= wordbook.user_words.where(user: current_user, mastered: true).count %></td>
+        <td><%= link_to '查看单词', wordbooks_words_path(wordbook) %></td>
+        <td><%# link_to 'Edit', edit_wordbook_path(wordbook) %></td>
+        <td><%# link_to 'Destroy', wordbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>

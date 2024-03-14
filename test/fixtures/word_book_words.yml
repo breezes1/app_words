@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: word_book_words
+#
+#  id           :bigint           not null, primary key
+#  word_id      :bigint
+#  word_book_id :bigint
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  word: one
+  word_book: one
+  mastered: false
+  last_reviewed_at: 2024-03-14 14:19:44
+
+two:
+  word: two
+  word_book: two
+  mastered: false
+  last_reviewed_at: 2024-03-14 14:19:44
